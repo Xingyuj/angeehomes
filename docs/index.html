@@ -1,1 +1,555 @@
-welcome to the placehold of angeehomes
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>安居家建 | 墨尔本室内装修</title>
+  <meta name="description" content="安居家建（Melbourne）— 室内装修 / 翻新 / 厨房浴室 / 油漆地板。快速报价，透明流程，按时交付。" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33cc;
+      --line:#233055;
+      --text:#eaf0ff;
+      --muted:#b9c6ff;
+      --accent:#7c5cff;
+      --accent2:#2ee9a6;
+      --warn:#ffcc66;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(46,233,166,.22), transparent 55%),
+        radial-gradient(700px 500px at 45% 95%, rgba(255,204,102,.15), transparent 60%),
+        linear-gradient(180deg, #071022 0%, #0b1220 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:14px 16px;border:1px solid rgba(255,255,255,.06);
+      background:rgba(9,15,30,.55);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      position:sticky;top:14px;z-index:50;
+    }
+    .brand{display:flex;align-items:center;gap:10px;white-space:nowrap}
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display:grid;place-items:center;
+      font-weight:800;color:#081024;
+      box-shadow:0 12px 30px rgba(124,92,255,.25);
+    }
+    .brand b{letter-spacing:.6px}
+    .nav{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end
+    }
+    .pill{
+      text-decoration:none;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;font-size:14px;
+      transition:.18s ease;
+    }
+    .pill:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
+    .pill.primary{
+      border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#061022;
+      box-shadow:0 12px 30px rgba(46,233,166,.18);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(15,26,51,.55);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .hero-left{padding:28px 24px; position:relative; overflow:hidden}
+    .hero-left:before{
+      content:"";
+      position:absolute; inset:-120px -140px auto auto;
+      width:320px;height:320px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.55), transparent 60%);
+      filter: blur(0px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-weight:700;font-size:13px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--accent2);
+      box-shadow:0 0 0 6px rgba(46,233,166,.12);
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size:42px;line-height:1.05;
+      letter-spacing:.5px;
+    }
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{
+      margin:0;
+      color:rgba(234,240,255,.86);
+      font-size:16px;line-height:1.6;
+      max-width:56ch;
+    }
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{
+      cursor:pointer;
+      padding:12px 14px;border-radius:14px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      transition:.18s ease;
+      text-decoration:none;
+      display:inline-flex;gap:10px;align-items:center;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#061022;
+      box-shadow:0 12px 30px rgba(124,92,255,.18);
+    }
+    .mini{
+      margin-top:14px;
+      display:flex;flex-wrap:wrap;gap:10px;
+      color:rgba(185,198,255,.9);
+      font-weight:600;
+      font-size:13px;
+    }
+    .mini span{
+      padding:8px 10px;border-radius:999px;
+      border:1px dashed rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero-right{padding:18px}
+    .grid{
+      display:grid;gap:12px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 520px){ .grid{grid-template-columns:1fr} }
+    .stat{
+      padding:14px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(11,18,32,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat:after{
+      content:"";
+      position:absolute; inset:auto -40px -40px auto;
+      width:120px;height:120px;border-radius:40px;
+      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(46,233,166,.18));
+      transform: rotate(18deg);
+    }
+    .stat b{display:block;font-size:14px;color:rgba(234,240,255,.92);margin-bottom:6px}
+    .stat p{margin:0;font-size:13px;color:rgba(185,198,255,.85);line-height:1.55}
+    .stat .tag{
+      display:inline-block;margin-top:10px;
+      font-size:12px;font-weight:800;
+      color:#061022;
+      background:linear-gradient(135deg,var(--warn),rgba(255,255,255,.2));
+      padding:6px 9px;border-radius:999px;
+    }
+
+    .section{margin-top:18px; padding:22px}
+    .section h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:.3px
+    }
+    .features{
+      display:grid;gap:12px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px){ .features{grid-template-columns:1fr} }
+    .feat{
+      padding:16px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(11,18,32,.35);
+    }
+    .feat .icon{
+      width:40px;height:40px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.25);
+      margin-bottom:10px;
+      font-weight:900;
+    }
+    .feat b{display:block;margin-bottom:6px}
+    .feat p{margin:0;color:rgba(185,198,255,.85);line-height:1.6;font-size:14px}
+
+    .two{
+      display:grid;gap:12px;
+      grid-template-columns: 1fr 1fr;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .two{grid-template-columns:1fr} }
+    .list{
+      padding:16px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(11,18,32,.35);
+    }
+    ul{margin:10px 0 0 18px;color:rgba(185,198,255,.9);line-height:1.8}
+    .note{
+      margin-top:10px;
+      color:rgba(185,198,255,.85);
+      font-size:13px
+    }
+
+    .form{
+      padding:18px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(11,18,32,.35);
+    }
+    label{display:block;margin:10px 0 6px;font-weight:700;font-size:13px;color:rgba(234,240,255,.9)}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:98px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width: 520px){ .row{grid-template-columns:1fr} }
+    .form .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+    .small{
+      font-size:12px;color:rgba(185,198,255,.8);line-height:1.5;margin:0
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:18px 22px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      color:rgba(185,198,255,.75);
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(9,15,30,.35);
+      border-radius:var(--radius);
+    }
+    .toast{
+      position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+      background:rgba(15,26,51,.90);
+      border:1px solid rgba(255,255,255,.12);
+      padding:12px 14px;border-radius:14px;
+      box-shadow: var(--shadow);
+      color:rgba(234,240,255,.95);
+      display:none;
+      max-width:min(560px, calc(100% - 24px));
+      z-index:99;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">安</div>
+        <div>
+          <b>安居家建</b>
+          <div style="font-size:12px;color:rgba(185,198,255,.8);margin-top:2px">Melbourne Interior Renovation</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="pill" href="#services">服务</a>
+        <a class="pill" href="#process">流程</a>
+        <a class="pill" href="#quote">报价</a>
+        <a class="pill primary" href="#quote">获取免费咨询</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card hero-left">
+        <div class="kicker"><span class="dot"></span>墨尔本室内装修 · 讲究、靠谱、好沟通</div>
+        <h1>把“家”装修成<br/>你想回来的样子。</h1>
+        <p class="sub">
+          安居家建专注墨尔本室内装修与翻新：浴室/厨房、油漆、地板、隔墙与收纳。
+          我们用清晰报价 + 可追踪进度，让装修不再像开盲盒。
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#quote" id="btnQuote">⚡ 30秒快速报价</a>
+          <a class="btn" href="#services">🧰 看看能做什么</a>
+          <button class="btn" id="btnCopy">📋 复制联系信息</button>
+        </div>
+
+        <div class="mini">
+          <span>✅ 透明报价</span>
+          <span>✅ 进度可追踪</span>
+          <span>✅ 工地干净</span>
+          <span>✅ 按时交付</span>
+        </div>
+      </div>
+
+      <aside class="card hero-right">
+        <div class="grid">
+          <div class="stat">
+            <b>主打项目</b>
+            <p>浴室翻新 / 厨房改造 / 油漆地板 / 隔墙吊顶 / 收纳定制</p>
+            <span class="tag">热门</span>
+          </div>
+          <div class="stat">
+            <b>适合你如果</b>
+            <p>你想省心、预算可控、能及时沟通，不想天天追工人</p>
+            <span class="tag">很常见</span>
+          </div>
+          <div class="stat">
+            <b>服务范围</b>
+            <p>Melbourne 全域（按距离安排上门看现场）</p>
+            <span class="tag">全城</span>
+          </div>
+          <div class="stat">
+            <b>一句话承诺</b>
+            <p>不忽悠、不失联、不给你留“尾巴工程”</p>
+            <span class="tag">认真</span>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;padding:14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(185,198,255,.9);font-size:13px;line-height:1.6">
+          <b style="color:rgba(234,240,255,.95)">小彩蛋：</b>
+          <span id="funLine">点一下按钮，看看今天的装修灵感 ✨</span>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn" id="btnInspire">🎲 来点灵感</button>
+            <button class="btn" id="btnScroll">⬇️ 直接去报价</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card section" id="services">
+      <h2>我们能做什么</h2>
+      <div class="features">
+        <div class="feat">
+          <div class="icon">🛁</div>
+          <b>浴室翻新</b>
+          <p>拆改、防水、贴砖、洁具安装、淋浴屏、灯具五金，整体交付。</p>
+        </div>
+        <div class="feat">
+          <div class="icon">🍳</div>
+          <b>厨房改造</b>
+          <p>橱柜/台面/防溅板/电器位调整，让你下厨不再“拥挤转身”。</p>
+        </div>
+        <div class="feat">
+          <div class="icon">🎨</div>
+          <b>油漆 & 地板</b>
+          <p>墙面修补、全屋翻新、踢脚线、地板更换与收边，焕新最快的组合。</p>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="list">
+          <b>常见追加项</b>
+          <ul>
+            <li>隔墙/吊顶/石膏板修复</li>
+            <li>门锁五金、灯具更换、插座面板</li>
+            <li>衣柜/收纳/洗衣房改造</li>
+            <li>局部修补：小活也欢迎</li>
+          </ul>
+          <div class="note">* 需要许可/结构类项目我们会先评估并按合规流程处理。</div>
+        </div>
+
+        <div class="list" id="process">
+          <b>流程很简单</b>
+          <ul>
+            <li>1）线上沟通需求（你发照片/视频也行）</li>
+            <li>2）预约上门看现场 & 给初步建议</li>
+            <li>3）出详细报价 + 工期计划</li>
+            <li>4）开工：每个节点拍照/汇报进度</li>
+            <li>5）验收交付：清洁收尾，不留尾巴</li>
+          </ul>
+          <div class="note">你最怕的“沟通成本”，我们尽量替你扛。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section" id="quote">
+      <h2>30秒快速报价（示例表单）</h2>
+      <div class="two">
+        <div class="form">
+          <form id="quoteForm">
+            <div class="row">
+              <div>
+                <label>你的称呼</label>
+                <input name="name" placeholder="例如：Ethan" />
+              </div>
+              <div>
+                <label>手机 / 微信</label>
+                <input name="contact" placeholder="例如：04xx xxx xxx / wechat-id" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label>项目类型</label>
+                <input name="type" placeholder="浴室/厨房/油漆/地板/其他" />
+              </div>
+              <div>
+                <label>所在区域</label>
+                <input name="suburb" placeholder="例如：Doncaster East" />
+              </div>
+            </div>
+
+            <label>需求描述</label>
+            <textarea name="detail" placeholder="简单说说：想做什么、面积/房龄、有没有预算/时间窗口"></textarea>
+
+            <div class="actions">
+              <button class="btn primary" type="submit">🚀 生成咨询信息</button>
+              <button class="btn" type="button" id="btnEmail">✉️ 复制成邮件内容</button>
+            </div>
+
+            <p class="small">说明：这个页面是静态版，点击“生成咨询信息”会把内容整理成一段可复制文字（不会自动发送）。后续你想接入真正的提交（Google Form / Airtable / 自建API）我也可以帮你改。</p>
+          </form>
+        </div>
+
+        <div class="list">
+          <b>建议你准备这3样，报价会更准</b>
+          <ul>
+            <li>现场照片（全景 + 细节）</li>
+            <li>大概尺寸（或平面图）</li>
+            <li>你最在意的点：预算 / 工期 / 风格</li>
+          </ul>
+
+          <div style="margin-top:12px;padding:12px 14px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:rgba(185,198,255,.9);line-height:1.7">
+            <b style="color:rgba(234,240,255,.95)">联系信息（你可改成自己的）</b><br/>
+            电话：<span id="phone">04xx xxx xxx</span><br/>
+            微信：<span id="wechat">angee-homes</span><br/>
+            邮箱：<span id="email">hello@angeehomes.com.au</span><br/>
+            <span style="opacity:.8">* 把这三项换成你真实信息即可。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> 安居家建 · Melbourne Interior Renovation</div>
+      <div style="opacity:.85">做得好看，更要住得舒服。</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const toast = (msg) => {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      clearTimeout(window.__t);
+      window.__t = setTimeout(()=> t.style.display='none', 2400);
+    };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const funLines = [
+      "灵感 1：浴室想显大？浅色大砖 + 无边框玻璃更出效果。",
+      "灵感 2：油漆别只选白色：warm white 更耐看、更有“家味”。",
+      "灵感 3：收纳=幸福感：洗衣房做一整排台面，秒变顺手。",
+      "灵感 4：地板想高级：统一色系 + 细窄踢脚线更显精致。",
+      "灵感 5：厨房不想乱：多一个抽屉胜过两个柜门。"
+    ];
+
+    document.getElementById('btnInspire').addEventListener('click', () => {
+      const line = funLines[Math.floor(Math.random() * funLines.length)];
+      document.getElementById('funLine').textContent = line;
+      toast("✨ 已送你一条装修灵感");
+    });
+
+    document.getElementById('btnScroll').addEventListener('click', () => {
+      document.querySelector('#quote').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    const copyText = async (text) => {
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("✅ 已复制到剪贴板");
+      }catch(e){
+        toast("⚠️ 复制失败：浏览器可能禁止剪贴板权限");
+      }
+    };
+
+    document.getElementById('btnCopy').addEventListener('click', () => {
+      const phone = document.getElementById('phone').textContent.trim();
+      const wechat = document.getElementById('wechat').textContent.trim();
+      const email = document.getElementById('email').textContent.trim();
+      copyText(`安居家建｜墨尔本室内装修\n电话：${phone}\n微信：${wechat}\n邮箱：${email}`);
+    });
+
+    const buildMessage = (data) => {
+      return [
+        "【安居家建 · 装修咨询】",
+        `称呼：${data.name || "-"}`,
+        `联系方式：${data.contact || "-"}`,
+        `项目类型：${data.type || "-"}`,
+        `所在区域：${data.suburb || "-"}`,
+        `需求描述：${(data.detail || "-").replace(/\n/g,' ')}`,
+        "",
+        "我希望你们给我：初步建议 + 预算范围 + 预计工期。"
+      ].join("\n");
+    };
+
+    const getFormData = () => {
+      const form = document.getElementById('quoteForm');
+      const fd = new FormData(form);
+      return Object.fromEntries(fd.entries());
+    };
+
+    document.getElementById('quoteForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = buildMessage(getFormData());
+      copyText(msg);
+    });
+
+    document.getElementById('btnEmail').addEventListener('click', () => {
+      const msg = buildMessage(getFormData());
+      copyText(
+        "Subject: 装修咨询 - 安居家建\n\n" +
+        msg +
+        "\n\n（可附上现场照片/视频）"
+      );
+    });
+
+    // Small delight: click the logo for confetti-ish toast
+    document.querySelector('.logo').addEventListener('click', () => {
+      toast("🏠 安居家建：开工不摆烂，交付不拖延！");
+    });
+  </script>
+</body>
+</html>
