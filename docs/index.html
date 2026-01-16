@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>安居家建 | 墨尔本室内装修</title>
-  <meta name="description" content="安居家建（Melbourne）— 室内装修 / 翻新 / 厨房浴室 / 油漆地板。快速报价，透明流程，按时交付。" />
+  <title>Angee Homes | 安居家建 · Melbourne Interior Renovation</title>
+  <meta name="description" content="Angee Homes / 安居家建 — Melbourne interior renovation: bathroom, kitchen, painting, flooring. Transparent quotes, trackable progress, on-time delivery." />
 
   <style>
     :root{
@@ -50,6 +50,8 @@
       display:grid;place-items:center;
       font-weight:800;color:#081024;
       box-shadow:0 12px 30px rgba(124,92,255,.25);
+      cursor:pointer;
+      user-select:none;
     }
     .brand b{letter-spacing:.6px}
     .nav{
@@ -63,6 +65,7 @@
       color:var(--text);
       font-weight:600;font-size:14px;
       transition:.18s ease;
+      white-space:nowrap;
     }
     .pill:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
     .pill.primary{
@@ -70,6 +73,27 @@
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:#061022;
       box-shadow:0 12px 30px rgba(46,233,166,.18);
+    }
+
+    /* Language switch */
+    .lang-switch{display:flex;gap:8px;align-items:center}
+    .lang-btn{
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;font-size:13px;
+      cursor:pointer;
+      transition:.18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .lang-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
+    .lang-btn.active{
+      border:none;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#061022;
+      box-shadow:0 12px 30px rgba(124,92,255,.18);
     }
 
     .hero{
@@ -95,7 +119,6 @@
       position:absolute; inset:-120px -140px auto auto;
       width:320px;height:320px;border-radius:50%;
       background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.55), transparent 60%);
-      filter: blur(0px);
       opacity:.9;
       pointer-events:none;
     }
@@ -135,6 +158,7 @@
       transition:.18s ease;
       text-decoration:none;
       display:inline-flex;gap:10px;align-items:center;
+      white-space:nowrap;
     }
     .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
     .btn.primary{
@@ -154,6 +178,7 @@
       padding:8px 10px;border-radius:999px;
       border:1px dashed rgba(255,255,255,.14);
       background:rgba(255,255,255,.03);
+      white-space:nowrap;
     }
 
     .hero-right{padding:18px}
@@ -184,6 +209,7 @@
       color:#061022;
       background:linear-gradient(135deg,var(--warn),rgba(255,255,255,.2));
       padding:6px 9px;border-radius:999px;
+      white-space:nowrap;
     }
 
     .section{margin-top:18px; padding:22px}
@@ -283,191 +309,207 @@
 
     <header class="topbar">
       <div class="brand">
-        <div class="logo">安</div>
+        <div class="logo" title="Click me">安</div>
         <div>
-          <b>安居家建</b>
-          <div style="font-size:12px;color:rgba(185,198,255,.8);margin-top:2px">Melbourne Interior Renovation</div>
+          <b data-i18n="brand_name">安居家建</b>
+          <div style="font-size:12px;color:rgba(185,198,255,.8);margin-top:2px" data-i18n="brand_subtitle">Melbourne Interior Renovation</div>
         </div>
       </div>
-      <nav class="nav">
-        <a class="pill" href="#services">服务</a>
-        <a class="pill" href="#process">流程</a>
-        <a class="pill" href="#quote">报价</a>
-        <a class="pill primary" href="#quote">获取免费咨询</a>
-      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+        <nav class="nav">
+          <a class="pill" href="#services" data-i18n="nav_services">服务</a>
+          <a class="pill" href="#process" data-i18n="nav_process">流程</a>
+          <a class="pill" href="#quote" data-i18n="nav_quote">报价</a>
+          <a class="pill primary" href="#quote" data-i18n="nav_free">获取免费咨询</a>
+        </nav>
+
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn" id="lang-zh">中文</button>
+          <button class="lang-btn" id="lang-en">EN</button>
+        </div>
+      </div>
     </header>
 
     <section class="hero">
       <div class="card hero-left">
-        <div class="kicker"><span class="dot"></span>墨尔本室内装修 · 讲究、靠谱、好沟通</div>
-        <h1>把“家”装修成<br/>你想回来的样子。</h1>
-        <p class="sub">
+        <div class="kicker"><span class="dot"></span><span data-i18n="kicker">墨尔本室内装修 · 讲究、靠谱、好沟通</span></div>
+
+        <h1 data-i18n="hero_title">把“家”装修成<br/>你想回来的样子。</h1>
+
+        <p class="sub" data-i18n="hero_desc">
           安居家建专注墨尔本室内装修与翻新：浴室/厨房、油漆、地板、隔墙与收纳。
           我们用清晰报价 + 可追踪进度，让装修不再像开盲盒。
         </p>
 
         <div class="cta-row">
-          <a class="btn primary" href="#quote" id="btnQuote">⚡ 30秒快速报价</a>
-          <a class="btn" href="#services">🧰 看看能做什么</a>
-          <button class="btn" id="btnCopy">📋 复制联系信息</button>
+          <a class="btn primary" href="#quote" id="btnQuote" data-i18n="btn_quote">⚡ 30秒快速报价</a>
+          <a class="btn" href="#services" data-i18n="btn_services">🧰 看看能做什么</a>
+          <button class="btn" id="btnCopy" data-i18n="btn_copy">📋 复制联系信息</button>
         </div>
 
         <div class="mini">
-          <span>✅ 透明报价</span>
-          <span>✅ 进度可追踪</span>
-          <span>✅ 工地干净</span>
-          <span>✅ 按时交付</span>
+          <span data-i18n="mini_1">✅ 透明报价</span>
+          <span data-i18n="mini_2">✅ 进度可追踪</span>
+          <span data-i18n="mini_3">✅ 工地干净</span>
+          <span data-i18n="mini_4">✅ 按时交付</span>
         </div>
       </div>
 
       <aside class="card hero-right">
         <div class="grid">
           <div class="stat">
-            <b>主打项目</b>
-            <p>浴室翻新 / 厨房改造 / 油漆地板 / 隔墙吊顶 / 收纳定制</p>
-            <span class="tag">热门</span>
+            <b data-i18n="stat1_title">主打项目</b>
+            <p data-i18n="stat1_desc">浴室翻新 / 厨房改造 / 油漆地板 / 隔墙吊顶 / 收纳定制</p>
+            <span class="tag" data-i18n="stat1_tag">热门</span>
           </div>
           <div class="stat">
-            <b>适合你如果</b>
-            <p>你想省心、预算可控、能及时沟通，不想天天追工人</p>
-            <span class="tag">很常见</span>
+            <b data-i18n="stat2_title">适合你如果</b>
+            <p data-i18n="stat2_desc">你想省心、预算可控、能及时沟通，不想天天追工人</p>
+            <span class="tag" data-i18n="stat2_tag">很常见</span>
           </div>
           <div class="stat">
-            <b>服务范围</b>
-            <p>Melbourne 全域（按距离安排上门看现场）</p>
-            <span class="tag">全城</span>
+            <b data-i18n="stat3_title">服务范围</b>
+            <p data-i18n="stat3_desc">Melbourne 全域（按距离安排上门看现场）</p>
+            <span class="tag" data-i18n="stat3_tag">全城</span>
           </div>
           <div class="stat">
-            <b>一句话承诺</b>
-            <p>不忽悠、不失联、不给你留“尾巴工程”</p>
-            <span class="tag">认真</span>
+            <b data-i18n="stat4_title">一句话承诺</b>
+            <p data-i18n="stat4_desc">不忽悠、不失联、不给你留“尾巴工程”</p>
+            <span class="tag" data-i18n="stat4_tag">认真</span>
           </div>
         </div>
 
         <div style="margin-top:12px;padding:14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(185,198,255,.9);font-size:13px;line-height:1.6">
-          <b style="color:rgba(234,240,255,.95)">小彩蛋：</b>
-          <span id="funLine">点一下按钮，看看今天的装修灵感 ✨</span>
+          <b style="color:rgba(234,240,255,.95)" data-i18n="easter_egg_title">小彩蛋：</b>
+          <span id="funLine" data-i18n="funline_default">点一下按钮，看看今天的装修灵感 ✨</span>
           <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn" id="btnInspire">🎲 来点灵感</button>
-            <button class="btn" id="btnScroll">⬇️ 直接去报价</button>
+            <button class="btn" id="btnInspire" data-i18n="btn_inspire">🎲 来点灵感</button>
+            <button class="btn" id="btnScroll" data-i18n="btn_scroll">⬇️ 直接去报价</button>
           </div>
         </div>
       </aside>
     </section>
 
     <section class="card section" id="services">
-      <h2>我们能做什么</h2>
+      <h2 data-i18n="services_title">我们能做什么</h2>
+
       <div class="features">
         <div class="feat">
           <div class="icon">🛁</div>
-          <b>浴室翻新</b>
-          <p>拆改、防水、贴砖、洁具安装、淋浴屏、灯具五金，整体交付。</p>
+          <b data-i18n="feat1_title">浴室翻新</b>
+          <p data-i18n="feat1_desc">拆改、防水、贴砖、洁具安装、淋浴屏、灯具五金，整体交付。</p>
         </div>
         <div class="feat">
           <div class="icon">🍳</div>
-          <b>厨房改造</b>
-          <p>橱柜/台面/防溅板/电器位调整，让你下厨不再“拥挤转身”。</p>
+          <b data-i18n="feat2_title">厨房改造</b>
+          <p data-i18n="feat2_desc">橱柜/台面/防溅板/电器位调整，让你下厨不再“拥挤转身”。</p>
         </div>
         <div class="feat">
           <div class="icon">🎨</div>
-          <b>油漆 & 地板</b>
-          <p>墙面修补、全屋翻新、踢脚线、地板更换与收边，焕新最快的组合。</p>
+          <b data-i18n="feat3_title">油漆 & 地板</b>
+          <p data-i18n="feat3_desc">墙面修补、全屋翻新、踢脚线、地板更换与收边，焕新最快的组合。</p>
         </div>
       </div>
 
       <div class="two">
         <div class="list">
-          <b>常见追加项</b>
+          <b data-i18n="extras_title">常见追加项</b>
           <ul>
-            <li>隔墙/吊顶/石膏板修复</li>
-            <li>门锁五金、灯具更换、插座面板</li>
-            <li>衣柜/收纳/洗衣房改造</li>
-            <li>局部修补：小活也欢迎</li>
+            <li data-i18n="extras_1">隔墙/吊顶/石膏板修复</li>
+            <li data-i18n="extras_2">门锁五金、灯具更换、插座面板</li>
+            <li data-i18n="extras_3">衣柜/收纳/洗衣房改造</li>
+            <li data-i18n="extras_4">局部修补：小活也欢迎</li>
           </ul>
-          <div class="note">* 需要许可/结构类项目我们会先评估并按合规流程处理。</div>
+          <div class="note" data-i18n="extras_note">* 需要许可/结构类项目我们会先评估并按合规流程处理。</div>
         </div>
 
         <div class="list" id="process">
-          <b>流程很简单</b>
+          <b data-i18n="process_title">流程很简单</b>
           <ul>
-            <li>1）线上沟通需求（你发照片/视频也行）</li>
-            <li>2）预约上门看现场 & 给初步建议</li>
-            <li>3）出详细报价 + 工期计划</li>
-            <li>4）开工：每个节点拍照/汇报进度</li>
-            <li>5）验收交付：清洁收尾，不留尾巴</li>
+            <li data-i18n="process_1">1）线上沟通需求（你发照片/视频也行）</li>
+            <li data-i18n="process_2">2）预约上门看现场 & 给初步建议</li>
+            <li data-i18n="process_3">3）出详细报价 + 工期计划</li>
+            <li data-i18n="process_4">4）开工：每个节点拍照/汇报进度</li>
+            <li data-i18n="process_5">5）验收交付：清洁收尾，不留尾巴</li>
           </ul>
-          <div class="note">你最怕的“沟通成本”，我们尽量替你扛。</div>
+          <div class="note" data-i18n="process_note">你最怕的“沟通成本”，我们尽量替你扛。</div>
         </div>
       </div>
     </section>
 
     <section class="card section" id="quote">
-      <h2>30秒快速报价（示例表单）</h2>
+      <h2 data-i18n="quote_title">30秒快速报价（示例表单）</h2>
+
       <div class="two">
         <div class="form">
           <form id="quoteForm">
             <div class="row">
               <div>
-                <label>你的称呼</label>
-                <input name="name" placeholder="例如：Ethan" />
+                <label data-i18n="lbl_name">你的称呼</label>
+                <input name="name" data-i18n-placeholder="ph_name" placeholder="例如：Ethan" />
               </div>
               <div>
-                <label>手机 / 微信</label>
-                <input name="contact" placeholder="例如：04xx xxx xxx / wechat-id" />
+                <label data-i18n="lbl_contact">手机 / 微信</label>
+                <input name="contact" data-i18n-placeholder="ph_contact" placeholder="例如：04xx xxx xxx / wechat-id" />
               </div>
             </div>
 
             <div class="row">
               <div>
-                <label>项目类型</label>
-                <input name="type" placeholder="浴室/厨房/油漆/地板/其他" />
+                <label data-i18n="lbl_type">项目类型</label>
+                <input name="type" data-i18n-placeholder="ph_type" placeholder="浴室/厨房/油漆/地板/其他" />
               </div>
               <div>
-                <label>所在区域</label>
-                <input name="suburb" placeholder="例如：Doncaster East" />
+                <label data-i18n="lbl_suburb">所在区域</label>
+                <input name="suburb" data-i18n-placeholder="ph_suburb" placeholder="例如：Doncaster East" />
               </div>
             </div>
 
-            <label>需求描述</label>
-            <textarea name="detail" placeholder="简单说说：想做什么、面积/房龄、有没有预算/时间窗口"></textarea>
+            <label data-i18n="lbl_detail">需求描述</label>
+            <textarea name="detail" data-i18n-placeholder="ph_detail" placeholder="简单说说：想做什么、面积/房龄、有没有预算/时间窗口"></textarea>
 
             <div class="actions">
-              <button class="btn primary" type="submit">🚀 生成咨询信息</button>
-              <button class="btn" type="button" id="btnEmail">✉️ 复制成邮件内容</button>
+              <button class="btn primary" type="submit" data-i18n="btn_gen">🚀 生成咨询信息</button>
+              <button class="btn" type="button" id="btnEmail" data-i18n="btn_email">✉️ 复制成邮件内容</button>
             </div>
 
-            <p class="small">说明：这个页面是静态版，点击“生成咨询信息”会把内容整理成一段可复制文字（不会自动发送）。后续你想接入真正的提交（Google Form / Airtable / 自建API）我也可以帮你改。</p>
+            <p class="small" data-i18n="form_note">
+              说明：这个页面是静态版，点击“生成咨询信息”会把内容整理成一段可复制文字（不会自动发送）。
+              后续你想接入真正的提交（Google Form / Airtable / 自建API）我也可以帮你改。
+            </p>
           </form>
         </div>
 
         <div class="list">
-          <b>建议你准备这3样，报价会更准</b>
+          <b data-i18n="prep_title">建议你准备这3样，报价会更准</b>
           <ul>
-            <li>现场照片（全景 + 细节）</li>
-            <li>大概尺寸（或平面图）</li>
-            <li>你最在意的点：预算 / 工期 / 风格</li>
+            <li data-i18n="prep_1">现场照片（全景 + 细节）</li>
+            <li data-i18n="prep_2">大概尺寸（或平面图）</li>
+            <li data-i18n="prep_3">你最在意的点：预算 / 工期 / 风格</li>
           </ul>
 
           <div style="margin-top:12px;padding:12px 14px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:rgba(185,198,255,.9);line-height:1.7">
-            <b style="color:rgba(234,240,255,.95)">联系信息（你可改成自己的）</b><br/>
-            电话：<span id="phone">04xx xxx xxx</span><br/>
-            微信：<span id="wechat">angee-homes</span><br/>
-            邮箱：<span id="email">hello@angeehomes.com.au</span><br/>
-            <span style="opacity:.8">* 把这三项换成你真实信息即可。</span>
+            <b style="color:rgba(234,240,255,.95)" data-i18n="contact_title">联系信息（你可改成自己的）</b><br/>
+            <span data-i18n="contact_phone_lbl">电话：</span><span id="phone">04xx xxx xxx</span><br/>
+            <span data-i18n="contact_wechat_lbl">微信：</span><span id="wechat">angee-homes</span><br/>
+            <span data-i18n="contact_email_lbl">邮箱：</span><span id="email">hello@angeehomes.com.au</span><br/>
+            <span style="opacity:.8" data-i18n="contact_note">* 把这三项换成你真实信息即可。</span>
           </div>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <div>© <span id="year"></span> 安居家建 · Melbourne Interior Renovation</div>
-      <div style="opacity:.85">做得好看，更要住得舒服。</div>
+      <div>© <span id="year"></span> <span data-i18n="footer_left">安居家建 · Melbourne Interior Renovation</span></div>
+      <div style="opacity:.85" data-i18n="footer_right">做得好看，更要住得舒服。</div>
     </footer>
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
+    // ---------- Toast ----------
     const toast = (msg) => {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -475,53 +517,320 @@
       clearTimeout(window.__t);
       window.__t = setTimeout(()=> t.style.display='none', 2400);
     };
-
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const funLines = [
-      "灵感 1：浴室想显大？浅色大砖 + 无边框玻璃更出效果。",
-      "灵感 2：油漆别只选白色：warm white 更耐看、更有“家味”。",
-      "灵感 3：收纳=幸福感：洗衣房做一整排台面，秒变顺手。",
-      "灵感 4：地板想高级：统一色系 + 细窄踢脚线更显精致。",
-      "灵感 5：厨房不想乱：多一个抽屉胜过两个柜门。"
-    ];
+    // ---------- i18n dictionary ----------
+    const I18N = {
+      zh: {
+        __title: "Angee Homes | 安居家建 · 墨尔本室内装修",
+        brand_name: "安居家建",
+        brand_subtitle: "Melbourne Interior Renovation",
+        nav_services: "服务",
+        nav_process: "流程",
+        nav_quote: "报价",
+        nav_free: "获取免费咨询",
 
+        kicker: "墨尔本室内装修 · 讲究、靠谱、好沟通",
+        hero_title: "把“家”装修成<br/>你想回来的样子。",
+        hero_desc: "安居家建专注墨尔本室内装修与翻新：浴室/厨房、油漆、地板、隔墙与收纳。我们用清晰报价 + 可追踪进度，让装修不再像开盲盒。",
+        btn_quote: "⚡ 30秒快速报价",
+        btn_services: "🧰 看看能做什么",
+        btn_copy: "📋 复制联系信息",
+
+        mini_1: "✅ 透明报价",
+        mini_2: "✅ 进度可追踪",
+        mini_3: "✅ 工地干净",
+        mini_4: "✅ 按时交付",
+
+        stat1_title: "主打项目",
+        stat1_desc: "浴室翻新 / 厨房改造 / 油漆地板 / 隔墙吊顶 / 收纳定制",
+        stat1_tag: "热门",
+        stat2_title: "适合你如果",
+        stat2_desc: "你想省心、预算可控、能及时沟通，不想天天追工人",
+        stat2_tag: "很常见",
+        stat3_title: "服务范围",
+        stat3_desc: "Melbourne 全域（按距离安排上门看现场）",
+        stat3_tag: "全城",
+        stat4_title: "一句话承诺",
+        stat4_desc: "不忽悠、不失联、不给你留“尾巴工程”",
+        stat4_tag: "认真",
+
+        easter_egg_title: "小彩蛋：",
+        funline_default: "点一下按钮，看看今天的装修灵感 ✨",
+        btn_inspire: "🎲 来点灵感",
+        btn_scroll: "⬇️ 直接去报价",
+
+        services_title: "我们能做什么",
+        feat1_title: "浴室翻新",
+        feat1_desc: "拆改、防水、贴砖、洁具安装、淋浴屏、灯具五金，整体交付。",
+        feat2_title: "厨房改造",
+        feat2_desc: "橱柜/台面/防溅板/电器位调整，让你下厨不再“拥挤转身”。",
+        feat3_title: "油漆 & 地板",
+        feat3_desc: "墙面修补、全屋翻新、踢脚线、地板更换与收边，焕新最快的组合。",
+
+        extras_title: "常见追加项",
+        extras_1: "隔墙/吊顶/石膏板修复",
+        extras_2: "门锁五金、灯具更换、插座面板",
+        extras_3: "衣柜/收纳/洗衣房改造",
+        extras_4: "局部修补：小活也欢迎",
+        extras_note: "* 需要许可/结构类项目我们会先评估并按合规流程处理。",
+
+        process_title: "流程很简单",
+        process_1: "1）线上沟通需求（你发照片/视频也行）",
+        process_2: "2）预约上门看现场 & 给初步建议",
+        process_3: "3）出详细报价 + 工期计划",
+        process_4: "4）开工：每个节点拍照/汇报进度",
+        process_5: "5）验收交付：清洁收尾，不留尾巴",
+        process_note: "你最怕的“沟通成本”，我们尽量替你扛。",
+
+        quote_title: "30秒快速报价（示例表单）",
+        lbl_name: "你的称呼",
+        ph_name: "例如：Ethan",
+        lbl_contact: "手机 / 微信",
+        ph_contact: "例如：04xx xxx xxx / wechat-id",
+        lbl_type: "项目类型",
+        ph_type: "浴室/厨房/油漆/地板/其他",
+        lbl_suburb: "所在区域",
+        ph_suburb: "例如：Doncaster East",
+        lbl_detail: "需求描述",
+        ph_detail: "简单说说：想做什么、面积/房龄、有没有预算/时间窗口",
+
+        btn_gen: "🚀 生成咨询信息",
+        btn_email: "✉️ 复制成邮件内容",
+        form_note: "说明：这个页面是静态版，点击“生成咨询信息”会把内容整理成一段可复制文字（不会自动发送）。后续你想接入真正的提交（Google Form / Airtable / 自建API）我也可以帮你改。",
+
+        prep_title: "建议你准备这3样，报价会更准",
+        prep_1: "现场照片（全景 + 细节）",
+        prep_2: "大概尺寸（或平面图）",
+        prep_3: "你最在意的点：预算 / 工期 / 风格",
+
+        contact_title: "联系信息（你可改成自己的）",
+        contact_phone_lbl: "电话：",
+        contact_wechat_lbl: "微信：",
+        contact_email_lbl: "邮箱：",
+        contact_note: "* 把这三项换成你真实信息即可。",
+
+        footer_left: "安居家建 · Melbourne Interior Renovation",
+        footer_right: "做得好看，更要住得舒服。",
+
+        // Toast + helper strings
+        toast_copied: "✅ 已复制到剪贴板",
+        toast_copy_failed: "⚠️ 复制失败：浏览器可能禁止剪贴板权限",
+        toast_inspire: "✨ 已送你一条装修灵感",
+        toast_logo: "🏠 安居家建：开工不摆烂，交付不拖延！",
+
+        consult_header: "【安居家建 · 装修咨询】",
+        consult_name: "称呼",
+        consult_contact: "联系方式",
+        consult_type: "项目类型",
+        consult_suburb: "所在区域",
+        consult_detail: "需求描述",
+        consult_need: "我希望你们给我：初步建议 + 预算范围 + 预计工期。",
+        email_subject: "Subject: 装修咨询 - 安居家建",
+        email_tail: "（可附上现场照片/视频）"
+      },
+
+      en: {
+        __title: "Angee Homes | Melbourne Interior Renovation",
+        brand_name: "Angee Homes",
+        brand_subtitle: "Melbourne Interior Renovation",
+        nav_services: "Services",
+        nav_process: "Process",
+        nav_quote: "Quote",
+        nav_free: "Free Consultation",
+
+        kicker: "Melbourne renovations · clean work · clear comms",
+        hero_title: "Build a Home You’ll<br/>Love Coming Back To.",
+        hero_desc: "Angee Homes specialises in Melbourne interior renovations: bathrooms, kitchens, painting, flooring, partitions and storage. Clear quotes + trackable progress — no more renovation roulette.",
+        btn_quote: "⚡ Quick Quote (30s)",
+        btn_services: "🧰 What We Do",
+        btn_copy: "📋 Copy Contact Info",
+
+        mini_1: "✅ Transparent quotes",
+        mini_2: "✅ Trackable progress",
+        mini_3: "✅ Clean sites",
+        mini_4: "✅ On-time delivery",
+
+        stat1_title: "Popular work",
+        stat1_desc: "Bathroom / Kitchen / Painting & Flooring / Partition & Ceiling / Storage",
+        stat1_tag: "Popular",
+        stat2_title: "Great fit if",
+        stat2_desc: "You want less stress, predictable budget, quick responses — no chasing tradies",
+        stat2_tag: "Common",
+        stat3_title: "Service area",
+        stat3_desc: "Greater Melbourne (site visit arranged by distance)",
+        stat3_tag: "Metro",
+        stat4_title: "Our promise",
+        stat4_desc: "No ghosting. No shortcuts. No messy unfinished edges.",
+        stat4_tag: "Solid",
+
+        easter_egg_title: "Mini bonus:",
+        funline_default: "Tap the button for today’s reno inspiration ✨",
+        btn_inspire: "🎲 Inspiration",
+        btn_scroll: "⬇️ Jump to Quote",
+
+        services_title: "What we can do",
+        feat1_title: "Bathroom renovation",
+        feat1_desc: "Demo, waterproofing, tiling, fixtures, shower screen, lighting — end-to-end delivery.",
+        feat2_title: "Kitchen upgrade",
+        feat2_desc: "Cabinetry, benchtop, splashback, appliance layout tweaks — make cooking smoother.",
+        feat3_title: "Painting & flooring",
+        feat3_desc: "Patch & paint, full refresh, skirting, flooring replacement & finishing — fastest makeover combo.",
+
+        extras_title: "Common add-ons",
+        extras_1: "Partitions / ceilings / plasterboard repairs",
+        extras_2: "Locks & hardware, lights, switch & power plates",
+        extras_3: "Wardrobes / storage / laundry upgrades",
+        extras_4: "Small fixes welcome too",
+        extras_note: "* For permit/structural items, we assess first and follow compliant steps.",
+
+        process_title: "Simple process",
+        process_1: "1) Tell us what you want (photos/videos welcome)",
+        process_2: "2) Book a site visit & get practical suggestions",
+        process_3: "3) Receive a detailed quote + timeline",
+        process_4: "4) Start: photo updates at milestones",
+        process_5: "5) Handover: clean finish, no loose ends",
+        process_note: "We reduce your “communication cost” as much as possible.",
+
+        quote_title: "Quick Quote (sample form)",
+        lbl_name: "Name",
+        ph_name: "e.g., Ethan",
+        lbl_contact: "Phone / WeChat",
+        ph_contact: "e.g., 04xx xxx xxx / wechat-id",
+        lbl_type: "Project type",
+        ph_type: "Bathroom / Kitchen / Painting / Flooring / Other",
+        lbl_suburb: "Suburb",
+        ph_suburb: "e.g., Doncaster East",
+        lbl_detail: "Details",
+        ph_detail: "Briefly: what you want, size/age, budget and preferred timeline",
+
+        btn_gen: "🚀 Generate message",
+        btn_email: "✉️ Copy as email",
+        form_note: "Note: This is a static page. “Generate message” formats a copy-ready text (it won’t auto-send). Want real submissions (Google Form / Airtable / API)? I can help you wire it up.",
+
+        prep_title: "Bring these 3 for a more accurate quote",
+        prep_1: "Site photos (wide + details)",
+        prep_2: "Rough dimensions (or floor plan)",
+        prep_3: "Your priority: budget / timeline / style",
+
+        contact_title: "Contact (replace with your real info)",
+        contact_phone_lbl: "Phone: ",
+        contact_wechat_lbl: "WeChat: ",
+        contact_email_lbl: "Email: ",
+        contact_note: "* Replace these with your real contact details.",
+
+        footer_left: "Angee Homes · Melbourne Interior Renovation",
+        footer_right: "Looks great — lives even better.",
+
+        toast_copied: "✅ Copied to clipboard",
+        toast_copy_failed: "⚠️ Copy failed: clipboard permission blocked",
+        toast_inspire: "✨ Inspiration delivered",
+        toast_logo: "🏠 Angee Homes: clean work, clean finish.",
+
+        consult_header: "[Angee Homes · Renovation enquiry]",
+        consult_name: "Name",
+        consult_contact: "Contact",
+        consult_type: "Project type",
+        consult_suburb: "Suburb",
+        consult_detail: "Details",
+        consult_need: "Please provide: initial suggestions + budget range + estimated timeline.",
+        email_subject: "Subject: Renovation enquiry - Angee Homes",
+        email_tail: "(You can attach photos/videos of the site.)"
+      }
+    };
+
+    // ---------- Inspiration lines (per language) ----------
+    const funLines = {
+      zh: [
+        "灵感 1：浴室想显大？浅色大砖 + 无边框玻璃更出效果。",
+        "灵感 2：油漆别只选白色：warm white 更耐看、更有“家味”。",
+        "灵感 3：收纳=幸福感：洗衣房做一整排台面，秒变顺手。",
+        "灵感 4：地板想高级：统一色系 + 细窄踢脚线更显精致。",
+        "灵感 5：厨房不想乱：多一个抽屉胜过两个柜门。"
+      ],
+      en: [
+        "Tip 1: Want a bigger-looking bathroom? Light large-format tiles + frameless glass helps.",
+        "Tip 2: Don’t default to pure white paint — warm white feels more ‘home’ and ages better.",
+        "Tip 3: Storage = happiness. A full-length laundry benchtop makes everything easier.",
+        "Tip 4: For a premium floor look: consistent tones + slim skirting lines.",
+        "Tip 5: A drawer beats a cupboard door. More drawers = less chaos."
+      ]
+    };
+
+    // ---------- Language switch ----------
+    let CURRENT_LANG = localStorage.getItem("lang") || "zh";
+
+    function applyI18n(lang){
+      CURRENT_LANG = lang;
+      localStorage.setItem("lang", lang);
+      document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
+
+      // text nodes
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if (I18N[lang][key] != null) el.innerHTML = I18N[lang][key];
+      });
+
+      // placeholders
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (I18N[lang][key] != null) el.setAttribute("placeholder", I18N[lang][key]);
+      });
+
+      // title
+      document.title = I18N[lang].__title;
+
+      // active buttons
+      document.getElementById("lang-zh").classList.toggle("active", lang === "zh");
+      document.getElementById("lang-en").classList.toggle("active", lang === "en");
+    }
+
+    document.getElementById("lang-zh").addEventListener("click", ()=>applyI18n("zh"));
+    document.getElementById("lang-en").addEventListener("click", ()=>applyI18n("en"));
+
+    // ---------- Copy helper ----------
+    const copyText = async (text) => {
+      try{
+        await navigator.clipboard.writeText(text);
+        toast(I18N[CURRENT_LANG].toast_copied);
+      }catch(e){
+        toast(I18N[CURRENT_LANG].toast_copy_failed);
+      }
+    };
+
+    // ---------- Button wiring ----------
     document.getElementById('btnInspire').addEventListener('click', () => {
-      const line = funLines[Math.floor(Math.random() * funLines.length)];
+      const arr = funLines[CURRENT_LANG] || funLines.zh;
+      const line = arr[Math.floor(Math.random() * arr.length)];
       document.getElementById('funLine').textContent = line;
-      toast("✨ 已送你一条装修灵感");
+      toast(I18N[CURRENT_LANG].toast_inspire);
     });
 
     document.getElementById('btnScroll').addEventListener('click', () => {
       document.querySelector('#quote').scrollIntoView({behavior:'smooth', block:'start'});
     });
 
-    const copyText = async (text) => {
-      try{
-        await navigator.clipboard.writeText(text);
-        toast("✅ 已复制到剪贴板");
-      }catch(e){
-        toast("⚠️ 复制失败：浏览器可能禁止剪贴板权限");
-      }
-    };
-
     document.getElementById('btnCopy').addEventListener('click', () => {
       const phone = document.getElementById('phone').textContent.trim();
       const wechat = document.getElementById('wechat').textContent.trim();
       const email = document.getElementById('email').textContent.trim();
-      copyText(`安居家建｜墨尔本室内装修\n电话：${phone}\n微信：${wechat}\n邮箱：${email}`);
+      const header = (CURRENT_LANG === "zh")
+        ? `安居家建｜墨尔本室内装修`
+        : `Angee Homes | Melbourne Interior Renovation`;
+      copyText(`${header}\n${I18N[CURRENT_LANG].contact_phone_lbl}${phone}\n${I18N[CURRENT_LANG].contact_wechat_lbl}${wechat}\n${I18N[CURRENT_LANG].contact_email_lbl}${email}`);
     });
 
+    // ---------- Form message building ----------
     const buildMessage = (data) => {
       return [
-        "【安居家建 · 装修咨询】",
-        `称呼：${data.name || "-"}`,
-        `联系方式：${data.contact || "-"}`,
-        `项目类型：${data.type || "-"}`,
-        `所在区域：${data.suburb || "-"}`,
-        `需求描述：${(data.detail || "-").replace(/\n/g,' ')}`,
+        I18N[CURRENT_LANG].consult_header,
+        `${I18N[CURRENT_LANG].consult_name}：${data.name || "-"}`,
+        `${I18N[CURRENT_LANG].consult_contact}：${data.contact || "-"}`,
+        `${I18N[CURRENT_LANG].consult_type}：${data.type || "-"}`,
+        `${I18N[CURRENT_LANG].consult_suburb}：${data.suburb || "-"}`,
+        `${I18N[CURRENT_LANG].consult_detail}：${(data.detail || "-").replace(/\n/g,' ')}`,
         "",
-        "我希望你们给我：初步建议 + 预算范围 + 预计工期。"
+        I18N[CURRENT_LANG].consult_need
       ].join("\n");
     };
 
@@ -540,16 +849,19 @@
     document.getElementById('btnEmail').addEventListener('click', () => {
       const msg = buildMessage(getFormData());
       copyText(
-        "Subject: 装修咨询 - 安居家建\n\n" +
+        I18N[CURRENT_LANG].email_subject + "\n\n" +
         msg +
-        "\n\n（可附上现场照片/视频）"
+        "\n\n" + I18N[CURRENT_LANG].email_tail
       );
     });
 
-    // Small delight: click the logo for confetti-ish toast
+    // Small delight: click the logo
     document.querySelector('.logo').addEventListener('click', () => {
-      toast("🏠 安居家建：开工不摆烂，交付不拖延！");
+      toast(I18N[CURRENT_LANG].toast_logo);
     });
+
+    // ---------- Init ----------
+    applyI18n(CURRENT_LANG);
   </script>
 </body>
 </html>
